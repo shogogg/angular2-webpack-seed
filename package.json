@@ -1,0 +1,51 @@
+{
+  "name": "angular2-webpack-seed",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "angular2": "^2.0.0-beta.3",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.13",
+    "lodash": "^4.2.1",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.11"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-loader": "^0.4.0",
+    "jade": "^1.11.0",
+    "jade-loader": "git@github.com:primazp/jade-loader.git#5e2a24fbc7080b41cec9b0c530b06ffdb18cbbe2",
+    "lite-server": "^2.0.1",
+    "npm-run-all": "^1.5.1",
+    "style-loader": "^0.13.0",
+    "stylus-loader": "^1.5.1",
+    "ts-loader": "^0.8.0",
+    "typings": "^0.6.5",
+    "webpack": "^1.12.12"
+  },
+  "scripts": {
+    "postinstall": "npm run typings",
+    "start": "npm-run-all -p jade:watch webpack:watch server",
+    "server": "lite-server",
+    "typings": "typings install",
+    "jade:clean": "rm -rf dist/*.html",
+    "jade:build": "jade -o dist src/*.jade",
+    "jade:watch": "jade -w -o dist src/*.jade",
+    "jade": "npm-run-all jade:clean jade:build",
+    "webpack:clean": "rm -rf dist/app",
+    "webpack:build:dev": "webpack --config webpack.dev.config.js --progress --profile --display-error-details",
+    "webpack:watch:dev": "webpack --config webpack.dev.config.js --progress --profile --display-error-details --watch",
+    "webpack:build:prod": "webpack --config webpack.prod.config.js --progress --profile --display-error-details",
+    "webpack:watch:prod": "webpack --config webpack.prod.config.js --progress --profile --display-error-details --watch",
+    "webpack:build": "npm run webpack:build:dev",
+    "webpack:watch": "npm run webpack:watch:dev",
+    "webpack": "npm-run-all webpack:clean webpack:build:dev",
+    "build:dev": "npm-run-all jade webpack:clean webpack:build:dev",
+    "build:prod": "npm-run-all jade webpack:clean webpack:build:prod",
+    "build": "npm run build:dev",
+    "clean:all": "rm -rf node_modules typings dist/*",
+    "clean": "rm -rf dist"
+  }
+}
