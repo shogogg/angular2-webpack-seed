@@ -23,7 +23,7 @@ module.exports = {
       {test: /\.jade$/, loader: 'html!jade?+static'},
       {test: /\.json$/, loader: 'json'},
       {test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus')},
-      {test: /\.ts$/, loader: 'ts'}
+      {test: /\.ts$/, loader: 'awesome-typescript-loader'}
     ],
     noParse: [
       path.join(__dirname, 'node_modules', 'angular2', 'bundles')
