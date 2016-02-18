@@ -1,9 +1,7 @@
-var _ = require('lodash');
+var merge = require('webpack-merge');
 var common = require('./webpack.common.config');
 
-var config = _.extend({}, common('dev'), {
+module.exports = merge.smart(common, {
   debug: true,
   devtool: 'source-map'
 });
-
-module.exports = config;

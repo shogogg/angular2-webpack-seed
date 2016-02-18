@@ -1,12 +1,10 @@
-var _ = require('lodash');
 var webpack = require('webpack');
+var merge = require('webpack-merge');
 var common = require('./webpack.common.config');
 
-var config = _.extend({}, common('prod'), {
-  debug: false
+module.exports = merge.smart(common, {
+  debug: false,
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 });
-config.plugins.push(
-  new webpack.optimize.UglifyJsPlugin()
-);
-
-module.exports = config;
