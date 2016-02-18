@@ -7,11 +7,11 @@ module.exports = function (env) {
   return {
     debug: env !== 'prod',
     entry: {
-      main: abspath('src', 'app', 'main.ts'),
-      vendor: abspath('src', 'app', 'vendor.ts')
+      main: path.join(__dirname, 'src', 'app', 'main.ts'),
+      vendor: path.join(__dirname, 'src', 'app', 'vendor.ts')
     },
     output: {
-      path: abspath('dist'),
+      path: path.join(__dirname, 'dist'),
       filename: path.join('app', '[name].bundle.js'),
       sourceMapFilename: '[file].map'
     },
@@ -35,14 +35,9 @@ module.exports = function (env) {
       new webpack.optimize.CommonsChunkPlugin('vendor', path.join('app', 'vendor.bundle.js')),
       new ExtractTextPlugin(path.join('app', 'main.bundle.css')),
       new HtmlWebpackPlugin({
-        template: abspath('src', 'index.jade'),
+        template: path.join(__dirname, 'src', 'index.jade'),
         inject: 'body'
       })
     ]
   }
 };
-
-function abspath() {
-  var args = Array.prototype.slice.call(arguments, 0);
-  return path.join.apply(path, [__dirname].concat(args));
-}
