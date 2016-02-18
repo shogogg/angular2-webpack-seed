@@ -27,16 +27,6 @@ $ npm run build
 $ npm run build:prod
 ```
 
-#### Build only jade templates
-```
-$ npm run jade
-```
-
-#### Build without jade templates
-```
-$ npm run webpack
-```
-
 #### Install typings
 ```
 $ npm run typings

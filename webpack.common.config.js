@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function (env) {
   return {
@@ -10,8 +11,8 @@ module.exports = function (env) {
       vendor: abspath('src', 'app', 'vendor.ts')
     },
     output: {
-      path: abspath('dist', 'app'),
-      filename: '[name].bundle.js',
+      path: abspath('dist'),
+      filename: path.join('app', '[name].bundle.js'),
       sourceMapFilename: '[file].map'
     },
     resolve: {
@@ -31,8 +32,12 @@ module.exports = function (env) {
     },
     plugins: [
       new webpack.optimize.OccurenceOrderPlugin(true),
-      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
-      new ExtractTextPlugin('main.bundle.css')
+      new webpack.optimize.CommonsChunkPlugin('vendor', path.join('app', 'vendor.bundle.js')),
+      new ExtractTextPlugin(path.join('app', 'main.bundle.css')),
+      new HtmlWebpackPlugin({
+        template: abspath('src', 'index.jade'),
+        inject: 'body'
+      })
     ]
   }
 };
