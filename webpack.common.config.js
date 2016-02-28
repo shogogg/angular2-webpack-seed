@@ -20,7 +20,6 @@ module.exports = {
   module: {
     loaders: [
       {test: /\.html$/, loader: 'html'},
-      {test: /\.jade$/, loader: 'html!jade?+static'},
       {test: /\.json$/, loader: 'json'},
       {test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus')},
       {test: /\.ts$/, loader: 'awesome-typescript-loader'}
@@ -34,7 +33,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendor', path.join('app', 'vendor.bundle.js')),
     new ExtractTextPlugin(path.join('app', 'main.bundle.css')),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.jade'),
+      template: path.join(__dirname, 'src', 'index.html'),
       inject: 'body'
     })
   ]

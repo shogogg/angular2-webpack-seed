@@ -4,7 +4,6 @@ A simple Angular 2 project using below.
 
 - typescript
 - stylus
-- jade
 - webpack
 
 ### Usage

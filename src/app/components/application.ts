@@ -3,7 +3,7 @@ import {HelloWorld} from './hello.world';
 
 @Component({
     selector: 'app',
-    template: require('./application.jade'),
+    template: require('./application.html'),
     directives: [HelloWorld]
 })
 export class Application {
