@@ -35,6 +35,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.ejs'),
       inject: 'body',
+      minify: {
+        collapseWhitespace: true
+      },
       title: 'Angular 2 + webpack seed',
       base: '/',
       lang: 'ja'
