@@ -2,9 +2,10 @@ angular2-webpack-seed
 ---------------------
 A simple Angular 2 project using below.
 
-- typescript
-- stylus
-- webpack
+- angular2 2.0.0-beta.7
+- typescript 1.7.5
+- stylus 0.52.4
+- webpack 1.12.12
 
 ### Usage
 1. Clone or fork this repository.
