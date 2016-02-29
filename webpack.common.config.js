@@ -34,7 +34,8 @@ module.exports = {
     new ExtractTextPlugin(path.join('app', 'main.bundle.css')),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.ejs'),
-      inject: 'body'
+      inject: 'body',
+      title: 'Angular 2 + webpack seed'
     })
   ]
 };
