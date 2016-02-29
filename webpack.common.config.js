@@ -35,7 +35,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'index.ejs'),
       inject: 'body',
-      title: 'Angular 2 + webpack seed'
+      title: 'Angular 2 + webpack seed',
+      base: '/'
     })
   ]
 };
