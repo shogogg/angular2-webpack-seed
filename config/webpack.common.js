@@ -7,7 +7,7 @@ var root = path.dirname(__dirname);
 module.exports = {
   debug: false,
   entry: {
-    main: path.join(root, 'src', 'app', 'main.ts'),
+    app: path.join(root, 'src', 'app', 'app.ts'),
     vendor: path.join(root, 'src', 'app', 'vendor.ts')
   },
   output: {
@@ -32,7 +32,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin('vendor', path.join('app', 'vendor.bundle.js')),
-    new ExtractTextPlugin(path.join('app', 'main.bundle.css')),
+    new ExtractTextPlugin(path.join('app', 'app.bundle.css')),
     new HtmlWebpackPlugin({
       template: path.join(root, 'src', 'index.ejs'),
       inject: 'body',
