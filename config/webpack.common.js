@@ -22,8 +22,14 @@ module.exports = {
     loaders: [
       {test: /\.html$/, loader: 'html'},
       {test: /\.json$/, loader: 'json'},
-      {test: /\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus')},
-      {test: /\.ts$/, loader: 'awesome-typescript-loader'}
+      {test: /\.ts$/, loader: 'awesome-typescript-loader'},
+      // Stylesheet for component.
+      {test: /\.component\.styl$/, loaders: ['to-string' , 'css?minimize', 'stylus']},
+      // Global stylesheet.
+      {test: /global\.styl$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!stylus', {publicPath: '../'})},
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap', {publicPath: '../'})},
+      // Images.
+      {test: /\.(png|gif|jpeg?)$/i, loader: 'file?name=assets/img-[sha512:hash:8].[ext]'}
     ],
     noParse: [
       path.join(root, 'node_modules', 'angular2', 'bundles')
